@@ -101,20 +101,12 @@ class _HomescreenState extends State<Homescreen> {
                 ),
               ),
             ),
-            Positioned(
-              top: 10,
-              right: 10,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.deepPurple.shade200,
-                ),
+            ElevatedButton(
                 onPressed: () {
                   count = 0;
                   setState(() {});
                 },
-                child: Text("Reset Counter"),
-              ),
-            ),
+                child: Text("Reset Counter")),
             const SizedBox(
               height: 10,
             ),
