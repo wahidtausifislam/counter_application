@@ -92,7 +92,7 @@ class _HomescreenState extends State<Homescreen> {
                   lineWidth: 16,
                   backgroundColor: Colors.deepPurple.shade100,
                   progressColor: Colors.deepPurple,
-                  percent: (count / 100),
+                  percent: (count / 100).clamp(0.0, 1.0),
                   circularStrokeCap: CircularStrokeCap.round,
                   center: Text(
                     count.toString(),
@@ -102,11 +102,16 @@ class _HomescreenState extends State<Homescreen> {
               ),
             ),
             ElevatedButton(
-                onPressed: () {
-                  count = 0;
-                  setState(() {});
-                },
-                child: Text("Reset Counter")),
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: Colors.deepPurple),
+              onPressed: () {
+                count = 0;
+                setState(() {});
+              },
+              child: Text(
+                "Reset Counter",
+              ),
+            ),
             const SizedBox(
               height: 10,
             ),
