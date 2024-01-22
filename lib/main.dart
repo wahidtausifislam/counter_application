@@ -50,6 +50,14 @@ class _HomescreenState extends State<Homescreen> {
     });
   }
 
+  reset_counter() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    count = 0;
+    setState(() {
+      preferences.setInt("Countvalue", count);
+    });
+  }
+
   @override
   void initState() {
     action();
@@ -105,7 +113,7 @@ class _HomescreenState extends State<Homescreen> {
               style:
                   ElevatedButton.styleFrom(backgroundColor: Colors.deepPurple),
               onPressed: () {
-                count = 0;
+                reset_counter();
                 setState(() {});
               },
               child: Text(
